@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HAWKINS SURVEILLANCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Bebas+Neue&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleNew1.css">
+</head>
+<body>
+
+    <!-- Static noise overlay (purely visual) -->
+    <div class="static-overlay" aria-hidden="true"></div>
+
+    <!-- ===== CHRISTMAS LIGHTS ===== -->
+    <div class="lights-container" aria-hidden="true">
+        <div class="wire"></div>
+        <div id="lightsStrip" class="lights-strip"></div>
+    </div>
+
+    <!-- ===== APP WRAPPER ===== -->
+    <div class="app-wrapper">
+
+        <!-- === SIDEBAR === -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="classified-stamp">&#9830; CLASSIFIED &#9830;</div>
+                <div class="logo-text">DEMO WATCH</div>
+                <div class="lab-name">HAWKINS NAT'L LABORATORY</div>
+                <div class="dept-name">DEPT. OF ENERGY // DIV. 6</div>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <ul class="nav-links">
+                <li class="active">
+                    <span class="nav-icon">&#9673;</span>
+                    <span>SURVEILLANCE</span>
+                    <span class="live-badge">LIVE</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-divider"></div>
+
+            <!-- System status block -->
+            <div class="system-stats">
+                <div class="stats-title">// SYSTEM STATUS //</div>
+                <div class="stat-row">
+                    <span class="stat-label">NETWORK</span>
+                    <span class="stat-value online">&#9679; ONLINE</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">THREAT LVL</span>
+                    <span class="stat-value threat">&#9650; ELEVATED</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">UPTIME</span>
+                    <span class="stat-value" id="uptimeDisplay">000:00:00</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">CLEARANCE</span>
+                    <span class="stat-value amber">LEVEL 5</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">CAMERAS</span>
+                    <span class="stat-value amber">12 / 14</span>
+                </div>
+            </div>
+
+            <!-- Decorative signal bars -->
+            <div class="signal-display">
+                <div class="signal-label">SIGNAL STRENGTH</div>
+                <div class="signal-bars">
+                    <div class="sig-bar h1 active"></div>
+                    <div class="sig-bar h2 active"></div>
+                    <div class="sig-bar h3 active"></div>
+                    <div class="sig-bar h4 active"></div>
+                    <div class="sig-bar h5"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <div class="sidebar-footer">
+                <div class="user-avatar-icon">&#9670;</div>
+                <div class="user-details">
+                    <div class="user-name">ADMIN</div>
+                    <div class="user-role">SENIOR ANALYST</div>
+                </div>
+                <div class="user-status-dot"></div>
+            </div>
+        </nav>
+
+        <!-- === MAIN CONTENT === -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <div class="header-eyebrow">// TOP SECRET // EYES ONLY // HAWKINS, INDIANA //</div>
+                    <h1 class="page-title">SURVEILLANCE COMMAND</h1>
+                </div>
+                <div class="header-right">
+                    <div class="threat-meter-block">
+                        <div class="threat-label-text">THREAT METER</div>
+                        <div class="meter-bars">
+                            <div class="mbar m1 active"></div>
+                            <div class="mbar m2 active"></div>
+                            <div class="mbar m3 active"></div>
+                            <div class="mbar m4"></div>
+                            <div class="mbar m5"></div>
+                        </div>
+                    </div>
+                    <div class="clock-display" id="liveClockDisplay">00:00:00</div>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <div class="dashboard-grid">
+
+                <!-- ===== VIDEO CARD ===== -->
+                <div class="card video-card">
+                    <div class="card-header">
+                        <h3>LIVE FEED &nbsp;// &nbsp;CAM-01 &nbsp;// &nbsp;SECTOR 7G</h3>
+                        <div class="live-indicator">
+                            <span class="blink-dot"></span>&nbsp;LIVE
+                        </div>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <video id="videoFeed" autoplay playsinline></video>
+                        <canvas id="canvas" hidden></canvas>
+
+                        <!-- VHS/CRT overlays -->
+                        <div class="scanlines" aria-hidden="true"></div>
+                        <div class="vhs-noise" aria-hidden="true"></div>
+                        <div class="vhs-header">REC &#9679; &nbsp;CAM-01 &nbsp;| &nbsp;HAWKINS LAB</div>
+                        <div class="vhs-timecode" id="vhsTimecode">00:00:00:00</div>
+
+                        <!-- HUD corner brackets -->
+                        <div class="corner-hud tl" aria-hidden="true"></div>
+                        <div class="corner-hud tr" aria-hidden="true"></div>
+                        <div class="corner-hud bl" aria-hidden="true"></div>
+                        <div class="corner-hud br" aria-hidden="true"></div>
+
+                        <!-- Danger Overlay -->
+                        <div id="dangerAlert" class="danger-overlay">
+                            <div class="alert-box">
+                                <div class="alert-icon">&#9888;</div>
+                                <div class="alert-title">THREAT DETECTED</div>
+                                <div class="alert-sub">INITIATING LOCKDOWN PROTOCOL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Source Mode Toggle -->
+                    <div class="source-toggle-bar">
+                        <span class="source-label">SOURCE:</span>
+                        <div class="source-toggle-group">
+                            <input type="radio" name="sourceMode" id="modeCamera" value="camera" checked hidden>
+                            <label for="modeCamera" class="source-toggle-btn active">&#9673; CAMERA</label>
+
+                            <input type="radio" name="sourceMode" id="modeUpload" value="upload" hidden>
+                            <label for="modeUpload" class="source-toggle-btn">&#9650; VIDEO FILE</label>
+                        </div>
+
+                        <!-- File picker (visible only in upload mode) -->
+                        <div class="upload-zone" id="uploadZone">
+                            <input type="file" id="videoFileInput" accept="video/*" hidden>
+                            <button class="btn-upload" id="chooseFileBtn" onclick="document.getElementById('videoFileInput').click()">
+                                &#9654; LOAD FILE
+                            </button>
+                            <span class="upload-filename" id="uploadFilename">NO FILE LOADED</span>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="controls-bar">
+                        <button id="startButton" class="btn-primary">&#9670; INITIATE SCAN</button>
+                        <div class="select-wrapper">
+                            <label class="select-label">FREQ:</label>
+                            <select id="intervalSelect">
+                                <option value="500">100ms</option>
+                                <option value="500">250ms</option>
+                                <option value="500">500ms</option>
+                                <option value="1000">1s</option>
+                            </select>
+                        </div>
+                        <div class="scan-status" id="scanStatusText">STANDBY</div>
+                    </div>
+                </div>
+
+                <!-- ===== ANALYTICS CARD ===== -->
+                <div class="card analytics-card">
+
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <h3>AI ANALYSIS &nbsp;// &nbsp;TERMINAL</h3>
+                        <div id="aiThinking" class="ai-status">&#9670; PROCESSING...</div>
+                    </div>
+
+                    <!-- ── STAT PILLS ── -->
+                    <div class="stat-pills">
+                        <div class="stat-pill">
+                            <div class="pill-icon">&#9673;</div>
+                            <div class="pill-data">
+                                <div class="pill-value" id="scanCount">0</div>
+                                <div class="pill-label">SCANS</div>
+                            </div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="pill-icon">&#9650;</div>
+                            <div class="pill-data">
+                                <div class="pill-value threat-val" id="threatCount">0</div>
+                                <div class="pill-label">THREATS</div>
+                            </div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="pill-icon">&#9632;</div>
+                            <div class="pill-data">
+                                <div class="pill-value" id="objCount">0</div>
+                                <div class="pill-label">OBJECTS</div>
+                            </div>
+                        </div>
+                        <div class="stat-pill pill-wide">
+                            <div class="pill-icon">&#126;</div>
+                            <div class="pill-data">
+                                <div class="signal-wave-mini">
+                                    <span class="wv"></span><span class="wv"></span><span class="wv"></span>
+                                    <span class="wv"></span><span class="wv"></span><span class="wv"></span>
+                                    <span class="wv"></span><span class="wv"></span>
+                                </div>
+                                <div class="pill-label">SIGNAL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── THREAT GAUGE ── -->
+                    <div class="threat-gauge-block">
+                        <div class="gauge-label-row">
+                            <span class="gauge-title">COMPOSITE THREAT LEVEL</span>
+                            <span class="gauge-pct" id="threatPct">0%</span>
+                        </div>
+                        <div class="gauge-track">
+                            <div class="gauge-fill" id="threatGaugeFill" style="width:0%"></div>
+                            <div class="gauge-ticks">
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="gauge-zones">
+                            <span>CLEAR</span><span>LOW</span><span>MED</span><span>HIGH</span><span>CRITICAL</span>
+                        </div>
+                    </div>
+
+                    <!-- ── TERMINAL WINDOW ── -->
+                    <div class="terminal-window">
+                        <div class="terminal-title-bar">
+                            <div class="terminal-badge">
+                                <span class="tdot red"></span>
+                                <span class="tdot yellow"></span>
+                                <span class="tdot green"></span>
+                            </div>
+                            <span class="terminal-title-text">HAWKINS LAB :: THREAT ANALYSIS v4.2.0</span>
+                            <span class="terminal-conn" id="termConnStatus">&#9679; OFFLINE</span>
+                        </div>
+                        <textarea
+                            id="responseText"
+                            readonly
+                            placeholder="// SYSTEM READY. AWAITING VIDEO STREAM...&#10;// HAWKINS NATIONAL LABORATORY&#10;// AUTHORIZED PERSONNEL ONLY&#10;&#10;> _"
+                        ></textarea>
+                        <div class="terminal-footer-bar">
+                            <span id="termLineCount">0 LINES</span>
+                            <span id="termLastUpdate">LAST UPDATE: --:--:--</span>
+                        </div>
+                    </div>
+
+                    <!-- ── CONFIG DRAWER ── -->
+                    <div class="config-drawer">
+                        <button class="config-toggle" id="configToggle" onclick="toggleConfig()">
+                            &#9881; CONFIG
+                        </button>
+                        <div class="config-panel" id="configPanel">
+                            <div class="config-row">
+                                <label class="cfg-label">ENDPOINT URL</label>
+                                <input type="text" id="baseURL" value="http://localhost:8081" class="cfg-input">
+                            </div>
+                            <div class="config-row">
+                                <label class="cfg-label">SYSTEM PROMPT</label>
+                                <textarea id="instructionText" class="cfg-textarea" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- /dashboard-grid -->
+
+        </main>
+    </div><!-- /app-wrapper -->
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="script1.js"></script>
+    <script>
+        /* ---- Christmas lights generator ---- */
+        (function() {
+            const strip = document.getElementById('lightsStrip');
+            const colors = [
+                '#ff2222','#22ff44','#2288ff','#ffee22',
+                '#ff8800','#cc22ff','#ff2299','#22ffdd',
+                '#ff4444','#44ff44','#4488ff','#ffcc00'
+            ];
+            for (let i = 0; i < 48; i++) {
+                const bulb = document.createElement('div');
+                bulb.className = 'bulb';
+                const c = colors[i % colors.length];
+                bulb.style.setProperty('--color', c);
+                bulb.style.setProperty('--delay', (Math.random() * 3).toFixed(2) + 's');
+                bulb.style.setProperty('--dur', (1 + Math.random() * 2).toFixed(2) + 's');
+                strip.appendChild(bulb);
+            }
+        })();
+
+        /* ---- Live clock ---- */
+        (function() {
+            const clockEl  = document.getElementById('liveClockDisplay');
+            const tcEl     = document.getElementById('vhsTimecode');
+            const uptimeEl = document.getElementById('uptimeDisplay');
+            const startMs  = Date.now();
+
+            function pad(n, w) { return String(n).padStart(w, '0'); }
+
+            function tick() {
+                const now = new Date();
+                const h = pad(now.getHours(), 2);
+                const m = pad(now.getMinutes(), 2);
+                const s = pad(now.getSeconds(), 2);
+                if (clockEl) clockEl.textContent = `${h}:${m}:${s}`;
+
+                const fr = pad(Math.floor((Date.now() % 1000) / 33), 2);
+                if (tcEl)  tcEl.textContent  = `${h}:${m}:${s}:${fr}`;
+
+                const elapsed = Math.floor((Date.now() - startMs) / 1000);
+                const eh = pad(Math.floor(elapsed / 3600), 3);
+                const em = pad(Math.floor((elapsed % 3600) / 60), 2);
+                const es = pad(elapsed % 60, 2);
+                if (uptimeEl) uptimeEl.textContent = `${eh}:${em}:${es}`;
+            }
+            setInterval(tick, 500);
+            tick();
+        })();
+
+        /* ---- Scan status label ---- */
+        (function() {
+            const btn = document.getElementById('startButton');
+            const statusEl = document.getElementById('scanStatusText');
+            const connEl   = document.getElementById('termConnStatus');
+            if (!btn || !statusEl) return;
+            const observer = new MutationObserver(() => {
+                const active = btn.classList.contains('stop');
+                statusEl.textContent = active ? 'SCANNING...' : 'STANDBY';
+                statusEl.classList.toggle('scanning', active);
+                if (connEl) {
+                    connEl.textContent = active ? '● LIVE' : '● OFFLINE';
+                    connEl.classList.toggle('conn-live', active);
+                }
+            });
+            observer.observe(btn, { attributes: true, attributeFilter: ['class'] });
+        })();
+
+        /* ---- Analytics counters ---- */
+        (function() {
+            let scanTotal = 0, threatTotal = 0, objTotal = 0;
+            const scanEl   = document.getElementById('scanCount');
+            const threatEl = document.getElementById('threatCount');
+            const objEl    = document.getElementById('objCount');
+            const pctEl    = document.getElementById('threatPct');
+            const fillEl   = document.getElementById('threatGaugeFill');
+            const lineEl   = document.getElementById('termLineCount');
+            const updEl    = document.getElementById('termLastUpdate');
+            const respEl   = document.getElementById('responseText');
+
+            /* Intercept responseText changes via MutationObserver on the textarea */
+            if (!respEl) return;
+
+            /* Poll for new text content after each scan */
+            let lastVal = '';
+            setInterval(function() {
+                if (!respEl || respEl.value === lastVal) return;
+                lastVal = respEl.value;
+
+                scanTotal++;
+                if (scanEl) scanEl.textContent = scanTotal;
+
+                /* Count lines */
+                const lines = respEl.value.split('\n').filter(l => l.trim());
+                if (lineEl) lineEl.textContent = lines.length + ' LINES';
+
+                /* Update timestamp */
+                const now = new Date();
+                const pad = n => String(n).padStart(2,'0');
+                if (updEl) updEl.textContent = `LAST UPDATE: ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+                /* Parse threat % from response lines */
+                const pctMatches = [...respEl.value.matchAll(/\[(\d+)%\]/g)];
+                let maxThreat = 0;
+                if (pctMatches.length) {
+                    maxThreat = Math.max(...pctMatches.map(m => parseInt(m[1])));
+                }
+                if (pctEl)  pctEl.textContent = maxThreat + '%';
+                if (fillEl) {
+                    fillEl.style.width = maxThreat + '%';
+                    fillEl.className = 'gauge-fill' +
+                        (maxThreat >= 70 ? ' gauge-critical' :
+                         maxThreat >= 40 ? ' gauge-high' :
+                         maxThreat >= 20 ? ' gauge-med' : '');
+                }
+
+                /* Count threats */
+                const dangerTerms = ['knife','gun','weapon','blade','firearm','fire'];
+                if (dangerTerms.some(t => respEl.value.toLowerCase().includes(t))) {
+                    threatTotal++;
+                    if (threatEl) {
+                        threatEl.textContent = threatTotal;
+                        threatEl.classList.add('threat-flash');
+                        setTimeout(() => threatEl.classList.remove('threat-flash'), 600);
+                    }
+                }
+
+                /* Count objects detected */
+                const objMatches = respEl.value.match(/^\> \[/gm);
+                if (objEl) objEl.textContent = objMatches ? objMatches.length : 0;
+
+            }, 300);
+        })();
+
+        /* ---- Config drawer toggle ---- */
+        function toggleConfig() {
+            const panel  = document.getElementById('configPanel');
+            const toggle = document.getElementById('configToggle');
+            if (!panel) return;
+            const open = panel.classList.toggle('open');
+            toggle.classList.toggle('active', open);
+
+            /* Populate instruction textarea if empty */
+            const instrEl = document.getElementById('instructionText');
+            const cfgTA   = panel.querySelector('.cfg-textarea');
+            if (open && instrEl && cfgTA && !cfgTA.value) {
+                cfgTA.value = instrEl.value;
+            }
+            if (!open && instrEl && cfgTA) {
+                instrEl.value = cfgTA.value;
+            }
+        }
+    </script>
+</body>
+</html>

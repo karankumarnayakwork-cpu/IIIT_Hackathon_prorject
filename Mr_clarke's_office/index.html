@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OFFICE OF MR. CLARKE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── GLOBAL OVERLAYS ── -->
+<div id="c2-page-flash"></div>
+<div id="c3-strobe"></div>
+
+<!-- ── NAV ── -->
+<div class="scroll-line"><div class="scroll-line-bar"></div></div>
+<!-- <div class="ss-badge">SS</div> -->
+
+<nav>
+  <a href="#" class="logo">STRANGER THINGS</a>
+  <ul class="nav-links">
+    <li><div class="nav-light"></div><a href="#section-card1">UPSIDE DOWN THEORIES</a></li>
+    <li><div class="nav-light"></div><a href="#section-card2">DEMOWATCH</a></li>
+    <li><div class="nav-light"></div><a href="#section-card3">CODE RED</a></li>
+    
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO — OFFICE OF MR. CLARKE
+     ════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-scanlines"></div>
+  <p class="hero-tagline">HAWKINS&nbsp;&nbsp;INDIANA&nbsp;&nbsp;//&nbsp;&nbsp;1984</p>
+  <h1 class="hero-title">
+    <span class="line1">OFFICE OF</span>
+    <span class="line2">Mr.Clarke</span>
+  </h1>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════
+     CARDS WRAPPER
+     ════════════════════════════════════════ -->
+<div class="cards-wrapper">
+
+  <!-- ──────────────────────────────────────
+       CARD 1: UPSIDE DOWN THEORIES
+       ────────────────────────────────────── -->
+  <section class="card-section" id="section-card1">
+
+    <!-- Animated world bg -->
+    <div class="c1-world">
+      <div class="c1-sky-real"></div>
+      <div class="c1-horizon"></div>
+      <div class="c1-sky-upside"></div>
+    </div>
+
+    <!-- Canvases -->
+    <canvas id="stars1"></canvas>
+    <canvas id="vinesCanvas1"></canvas>
+
+    <!-- Portal -->
+    <div class="c1-portal-wrap">
+      <div class="c1-portal-ring c1-pr4"></div>
+      <div class="c1-portal-ring c1-pr2"></div>
+      <div class="c1-portal-ring c1-pr1"></div>
+      <div class="c1-portal-ring c1-pr3"></div>
+      <div class="c1-portal-core"></div>
+    </div>
+
+    <!-- Card -->
+    <div class="c1-card">
+      <div class="c1-top-bar">
+        <span>ADVAITA // EV-001</span>
+        <div class="c1-pulse-wrap">
+          <div class="c1-pulse-dot"></div>
+          <div class="c1-pulse-dot"></div>
+          <div class="c1-pulse-dot"></div>
+        </div>
+        <span>HAWKINS LAB</span>
+      </div>
+
+      <div class="c1-img-area">
+        <div class="c1-img-sky"></div>
+
+        <div class="c1-lightning c1-l1">
+          <svg width="40" height="120" viewBox="0 0 40 120"><path d="M20,0 L8,50 L18,50 L5,120 L22,55 L12,55 Z"/></svg>
+        </div>
+        <div class="c1-lightning c1-l2">
+          <svg width="30" height="100" viewBox="0 0 30 100"><path d="M15,0 L5,40 L13,40 L2,100 L18,45 L9,45 Z"/></svg>
+        </div>
+        <div class="c1-lightning c1-l3">
+          <svg width="35" height="110" viewBox="0 0 35 110"><path d="M17,0 L6,45 L15,45 L3,110 L20,50 L10,50 Z"/></svg>
+        </div>
+
+        <div class="c1-eye-glow" style="bottom:28%;left:12%"></div>
+        <div class="c1-eye-glow" style="bottom:28%;left:14.5%;animation-delay:0.3s"></div>
+        <div class="c1-eye-glow" style="bottom:32%;right:18%;animation-delay:1.5s"></div>
+        <div class="c1-eye-glow" style="bottom:32%;right:16%;animation-delay:1.8s"></div>
+
+        <svg class="c1-trees-svg" viewBox="0 0 520 120" height="120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="treeG1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a0a30" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#080318" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,0 L30,0 L30,40 L15,80 L0,40 Z" fill="url(#treeG1)"/>
+          <path d="M25,0 L55,0 L55,55 L40,100 L25,55 Z" fill="url(#treeG1)"/>
+          <path d="M60,0 L80,0 L80,35 L70,65 L60,35 Z" fill="url(#treeG1)"/>
+          <path d="M85,0 L115,0 L115,60 L100,110 L85,60 Z" fill="url(#treeG1)"/>
+          <path d="M130,0 L155,0 L155,45 L142,80 L130,45 Z" fill="url(#treeG1)"/>
+          <path d="M165,0 L195,0 L195,70 L180,120 L165,70 Z" fill="url(#treeG1)"/>
+          <path d="M205,0 L225,0 L225,40 L215,75 L205,40 Z" fill="url(#treeG1)"/>
+          <path d="M235,0 L270,0 L270,55 L252,100 L235,55 Z" fill="url(#treeG1)"/>
+          <path d="M280,0 L305,0 L305,42 L292,78 L280,42 Z" fill="url(#treeG1)"/>
+          <path d="M315,0 L345,0 L345,65 L330,115 L315,65 Z" fill="url(#treeG1)"/>
+          <path d="M355,0 L375,0 L375,38 L365,72 L355,38 Z" fill="url(#treeG1)"/>
+          <path d="M380,0 L415,0 L415,58 L397,105 L380,58 Z" fill="url(#treeG1)"/>
+          <path d="M425,0 L450,0 L450,48 L437,90 L425,48 Z" fill="url(#treeG1)"/>
+          <path d="M460,0 L490,0 L490,62 L475,115 L460,62 Z" fill="url(#treeG1)"/>
+          <path d="M495,0 L520,0 L520,42 L507,80 L495,42 Z" fill="url(#treeG1)"/>
+          <rect x="0" y="0" width="520" height="4" fill="#0a0320"/>
+        </svg>
+
+        <div class="c1-pdf-float">
+          <div class="c1-pdf-book">
+            <span class="c1-pdf-label">PDF</span>
+            <span class="c1-pdf-title">UPSIDE<br>DOWN<br>GUIDE</span>
+            <div class="c1-pdf-pages"></div>
+          </div>
+        </div>
+
+        <div id="c1-theoryParticles"></div>
+      </div>
+
+      <div class="c1-card-body">
+        <div class="c1-meta">
+          <span class="c1-date">MARCH 13, 2026</span>
+          <span class="c1-id">EV-001</span>
+        </div>
+        <div class="c1-classified">
+          <div class="c1-cdot"></div>
+          CLASSIFIED // MR. CLARKE INTEL
+        </div>
+        <h2 class="c1-title">UPSIDE DOWN<br>THEORIES</h2>
+        <p class="c1-sub">// DECODE THE MULTIVERSE //</p>
+        <p class="c1-desc">Mr. Clarke's classified multiverse theories — simplified. Participants distill the science of the Upside Down into a PDF guide readable by ordinary Hawkins citizens. Judged on clarity, accuracy, and creative communication.</p>
+        <p class="c1-loc"><span>LOC:</span>&nbsp;School</p>
+        <a href="#" class="c1-reg">Aweken</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────
+       CARD 2: DEMOWATCH
+       ────────────────────────────────────── -->
+  <section class="card-section" id="section-card2">
+
+    <div class="c2-bg" id="c2-bg"></div>
+    <div class="c2-scanlines"></div>
+
+    <!-- Full-width bulb string -->
+    <div class="c2-string-wrap">
+      <div class="c2-string-line"></div>
+      <div class="c2-bulbs-row" id="c2-bulbs-row"></div>
+    </div>
+
+    <div class="c2-card">
+      <div class="c2-top-bar">
+        <span></span>
+        <div class="c2-status-dots">
+          <div class="c2-sdot"></div>
+          <div class="c2-sdot"></div>
+          <div class="c2-sdot"></div>
+        </div>
+        <span>SURVEILLANCE ROOM B</span>
+      </div>
+
+      <div class="c2-img-area">
+        <div class="c2-img-bg"></div>
+
+        <!-- Threat meter -->
+        <div class="c2-threat-meter" id="c2-threat-meter">
+          <span class="c2-tm-label">THREAT</span>
+        </div>
+        
+        <!-- Monitor -->
+        <div class="c2-monitor">
+          <div class="c2-monitor-body">
+            <div class="c2-screen">
+              <div class="c2-scan-line"></div>
+              <div class="c2-cam-grid"></div>
+              <div class="c2-cam-label">HAWKINS CAM-01 // LIVE</div>
+              <div class="c2-cam-rec"><div class="c2-rec-dot"></div>REC</div>
+              <div class="c2-cam-ts" id="c2-cam-ts">1984:10:28 22:14:03</div>
+
+              <div class="c2-demo-in-screen" id="c2-demo-screen">
+                <svg viewBox="0 0 80 90" width="70" height="80" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="dg2" cx="50%" cy="40%" r="55%">
+                      <stop offset="0%" stop-color="#cc0000" stop-opacity="0.7"/>
+                      <stop offset="100%" stop-color="#400000" stop-opacity="0.2"/>
+                    </radialGradient>
+                  </defs>
+                  <ellipse cx="40" cy="62" rx="18" ry="24" fill="url(#dg2)"/>
+                  <g fill="#8b0000" opacity="0.9">
+                    <ellipse cx="40" cy="27" rx="13" ry="13"/>
+                    <ellipse cx="40" cy="11" rx="6" ry="9"/>
+                    <ellipse cx="52" cy="17" rx="6" ry="9" transform="rotate(60 40 27)"/>
+                    <ellipse cx="52" cy="37" rx="6" ry="9" transform="rotate(120 40 27)"/>
+                    <ellipse cx="40" cy="43" rx="6" ry="9" transform="rotate(180 40 27)"/>
+                    <ellipse cx="28" cy="37" rx="6" ry="9" transform="rotate(240 40 27)"/>
+                    <ellipse cx="28" cy="17" rx="6" ry="9" transform="rotate(300 40 27)"/>
+                  </g>
+                  <ellipse cx="40" cy="27" rx="7" ry="7" fill="#2a0000"/>
+                  <line x1="22" y1="58" x2="5" y2="68" stroke="#600000" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="58" y1="58" x2="75" y2="68" stroke="#600000" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="33" y1="83" x2="26" y2="90" stroke="#600000" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="47" y1="83" x2="54" y2="90" stroke="#600000" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="c2-monitor-stand"></div>
+            <div class="c2-monitor-base"></div>
+          </div>
+          <button class="c2-scan-btn" id="c2-scan-btn" onclick="c2TriggerScan()">▶ SCAN PERIMETER</button>
+        </div>
+
+        <div class="c2-detected-banner" id="c2-det-banner">⚠ DEMOGORGON DETECTED — CODE RED</div>
+        <canvas class="c2-wave-canvas" id="c2-wave-canvas" width="300" height="30"></canvas>
+      </div>
+
+      <div class="c2-card-body">
+        <div class="c2-meta">
+          <span class="c2-date">MARCH 14, 2026</span>
+          <span class="c2-id">EV-002</span>
+        </div>
+        <div class="c2-alert-tag"><div class="c2-alert-blink"></div>SURVEILLANCE ACTIVE</div>
+        <h2 class="c2-title">DEMODOG-WATCH</h2>
+        <p class="c2-sub">// MONITOR. DETECT. SURVIVE. //</p>
+        <p class="c2-desc">Hawkins' first line of defense. When a Demogorgon is detected on the surveillance feed, the lights go haywire — just like they do in the Upside Down. Monitor the perimeter. React before it's too late.</p>
+        <p class="c2-loc"><span>LOC:</span>&nbsp; SURVEILLANCE ROOM B</p>
+        <a href="#" class="c2-reg">Find</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────────────────────
+       CARD 3: CODE RED
+       ────────────────────────────────────── -->
+  <section class="card-section" id="section-card3">
+
+    <div class="c3-bg" id="c3-bg"></div>
+    <div class="c3-scanlines"></div>
+
+    <!-- Corner sirens -->
+    <div class="c3-siren-tl">
+      <div class="c3-siren-dome" id="c3-dome-tl"><div class="c3-sl" id="c3-sl-tl"></div></div>
+      <div class="c3-siren-base"></div>
+    </div>
+    <div class="c3-siren-tr">
+      <div class="c3-siren-dome" id="c3-dome-tr"><div class="c3-sl" id="c3-sl-tr"></div></div>
+      <div class="c3-siren-base"></div>
+    </div>
+
+    <div class="c3-card">
+      <div class="c3-card-overlay" id="c3-card-overlay"></div>
+
+      <div class="c3-top-bar">
+        <span></span>
+        <div class="c3-top-dots">
+          <div class="c3-tdot"></div>
+          <div class="c3-tdot"></div>
+          <div class="c3-tdot"></div>
+        </div>
+        <span>COMMAND CENTER</span>
+      </div>
+
+      <div class="c3-img-area">
+        <div class="c3-img-bg"></div>
+
+        <svg class="c3-warn-tri" style="top:10px;left:10px" width="36" height="32" viewBox="0 0 36 32">
+          <path d="M18,2 L34,30 L2,30 Z" fill="none" stroke="#cc0000" stroke-width="2"/>
+          <text x="18" y="24" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">!</text>
+        </svg>
+        <svg class="c3-warn-tri" style="top:10px;right:10px" width="36" height="32" viewBox="0 0 36 32">
+          <path d="M18,2 L34,30 L2,30 Z" fill="none" stroke="#cc0000" stroke-width="2"/>
+          <text x="18" y="24" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">!</text>
+        </svg>
+        <svg class="c3-warn-tri" style="bottom:40px;left:16px" width="28" height="26" viewBox="0 0 36 32">
+          <path d="M18,2 L34,30 L2,30 Z" fill="none" stroke="#cc0000" stroke-width="2"/>
+          <text x="18" y="24" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">!</text>
+        </svg>
+        <svg class="c3-warn-tri" style="bottom:40px;right:16px" width="28" height="26" viewBox="0 0 36 32">
+          <path d="M18,2 L34,30 L2,30 Z" fill="none" stroke="#cc0000" stroke-width="2"/>
+          <text x="18" y="24" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">!</text>
+        </svg>
+
+        <div class="c3-alarm-assembly">
+          <div class="c3-siren-pair">
+            <div class="c3-sd" id="c3-sd1"><div class="c3-sl" id="c3-sl1"></div></div>
+            <div style="font-family:'Courier Prime',monospace;font-size:0.55rem;letter-spacing:0.2em;color:rgba(180,40,40,0.5)">EMERGENCY</div>
+            <div class="c3-sd" id="c3-sd2"><div class="c3-sl" id="c3-sl2"></div></div>
+          </div>
+
+          <div class="c3-btn-wrap">
+            <div class="c3-ring-outer"></div>
+            <div class="c3-ring-mid"></div>
+            <button class="c3-big-btn" id="c3-big-btn" onclick="c3TriggerAlarm()">
+              <div class="c3-btn-shine"></div>
+              <span class="c3-btn-label">CODE<br>RED</span>
+            </button>
+          </div>
+
+          <div class="c3-status-display">
+            <div class="c3-status-txt" id="c3-status-txt">STANDBY // AWAITING SIGNAL</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="c3-card-body">
+        <div class="c3-meta">
+          <span class="c3-date">MARCH 15, 2026</span>
+          <span class="c3-id">EV-003</span>
+        </div>
+        <div class="c3-alert-tag"><div class="c3-alert-blink"></div>CRITICAL RESPONSE SYSTEM</div>
+        <h2 class="c3-title">CODE RED</h2>
+        <p class="c3-sub">// PRESS THE BUTTON. HAWKINS GOES ON ALERT. //</p>
+        <p class="c3-desc">When the threat is real, you sound the alarm. Hit the CODE RED button and watch Hawkins go on full alert. The lights. The sirens. The panic. React before it's too late.</p>
+        <p class="c3-loc"><span>LOC:</span>&nbsp; COMMAND CENTER</p>
+        <a href="#" class="c3-reg">Run</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .cards-wrapper -->
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+     ════════════════════════════════════════ -->
+<script>
+/* ═══════════ HERO PARALLAX ═══════════ */
+const heroTitle = document.querySelector('.hero-title');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (heroTitle && y < window.innerHeight) {
+    heroTitle.style.transform = `translateY(${y * 0.3}px)`;
+    heroTitle.style.opacity = 1 - y * 0.002;
+  }
+});
+
+/* ═══════════ CARD 1 — UPSIDE DOWN THEORIES ═══════════ */
+
+// Starfield (scoped to section)
+const starsC = document.getElementById('stars1');
+const starsCtx = starsC.getContext('2d');
+function resizeStars() {
+  const s = document.getElementById('section-card1');
+  starsC.width = s.offsetWidth; starsC.height = s.offsetHeight;
+}
+resizeStars();
+window.addEventListener('resize', resizeStars);
+const stars = Array.from({length:180}, () => ({
+  x: Math.random(), y: Math.random(),
+  r: Math.random()*1.5+0.3, a: Math.random(),
+  speed: Math.random()*0.008+0.002,
+  hue: Math.random()>0.8 ? 'hsla(270,80%,80%,' : 'hsla(0,0%,100%,'
+}));
+function drawStars() {
+  starsCtx.clearRect(0,0,starsC.width,starsC.height);
+  stars.forEach(s => {
+    s.a += s.speed;
+    const alpha = (Math.sin(s.a)*0.5+0.5)*0.8+0.1;
+    starsCtx.beginPath();
+    starsCtx.arc(s.x*starsC.width, s.y*starsC.height, s.r, 0, Math.PI*2);
+    starsCtx.fillStyle = s.hue+alpha+')';
+    starsCtx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+drawStars();
+
+// Vines (scoped to section)
+const vineC = document.getElementById('vinesCanvas1');
+const vineCtx = vineC.getContext('2d');
+function resizeVines() {
+  const s = document.getElementById('section-card1');
+  vineC.width = s.offsetWidth; vineC.height = s.offsetHeight;
+}
+resizeVines();
+window.addEventListener('resize', resizeVines);
+const vines = [];
+function createVine(x, h) {
+  const pts = [{x, y:0}];
+  let cx=x, cy=0;
+  while (cy < h*0.45) {
+    cx += (Math.random()-0.5)*40;
+    cy += Math.random()*30+15;
+    pts.push({x:cx, y:cy});
+  }
+  return {pts, progress:0, speed:Math.random()*0.003+0.001, alpha:Math.random()*0.3+0.1};
+}
+for(let i=0;i<8;i++) vines.push(createVine(Math.random()*window.innerWidth, window.innerHeight));
+function drawVines() {
+  vineCtx.clearRect(0,0,vineC.width,vineC.height);
+  vines.forEach(v => {
+    v.progress = Math.min(1, v.progress+v.speed);
+    const end = Math.floor(v.progress*v.pts.length);
+    if(end<2) return;
+    vineCtx.beginPath();
+    vineCtx.moveTo(v.pts[0].x, v.pts[0].y);
+    for(let i=1;i<end;i++) {
+      const cp=v.pts[i-1], np=v.pts[i];
+      vineCtx.quadraticCurveTo(cp.x+10, cp.y+5, np.x, np.y);
+    }
+    vineCtx.strokeStyle = `rgba(80,30,140,${v.alpha})`;
+    vineCtx.lineWidth = 1.5; vineCtx.stroke();
+    if(end>3) {
+      for(let i=2;i<end;i+=3) {
+        const p=v.pts[i];
+        vineCtx.beginPath(); vineCtx.ellipse(p.x+8,p.y,6,3,-0.5,0,Math.PI*2);
+        vineCtx.fillStyle=`rgba(60,20,110,${v.alpha*0.8})`; vineCtx.fill();
+        vineCtx.beginPath(); vineCtx.ellipse(p.x-8,p.y,5,3,0.5,0,Math.PI*2); vineCtx.fill();
+      }
+    }
+    if(v.progress>=1) { v.progress=0; v.pts=createVine(Math.random()*vineC.width, vineC.height).pts; }
+  });
+  requestAnimationFrame(drawVines);
+}
+drawVines();
+
+// Theory particles
+const theories = ['E=mc²','GATE OPEN','DIMENSION-X','VOID ENERGY','FREQUENCY','RESONANCE','PARALLEL','QUANTUM','MULTIVERSE','DARK MATTER'];
+const tpc = document.getElementById('c1-theoryParticles');
+function spawnTheory() {
+  const el = document.createElement('div');
+  el.className = 'c1-theory-particle';
+  el.textContent = theories[Math.floor(Math.random()*theories.length)];
+  el.style.cssText = `left:${Math.random()*85}%;animation-duration:${Math.random()*4+5}s;animation-delay:${Math.random()*2}s;opacity:0;`;
+  tpc.appendChild(el);
+  setTimeout(()=>el.remove(), 8000);
+}
+setInterval(spawnTheory, 600);
+
+// Spores
+function spawnSpore() {
+  const s = document.createElement('div');
+  s.className = 'spore';
+  const sz = Math.random()*5+2;
+  const sec = document.getElementById('section-card1');
+  s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;bottom:0;animation-duration:${Math.random()*6+5}s;animation-delay:${Math.random()*2}s;background:rgba(${100+Math.floor(Math.random()*80)},${20+Math.floor(Math.random()*40)},255,0.7);box-shadow:0 0 ${sz*2}px rgba(150,80,255,0.5);`;
+  sec.appendChild(s);
+  setTimeout(()=>s.remove(), 12000);
+}
+setInterval(spawnSpore, 500);
+
+
+/* ═══════════ CARD 2 — DEMOWATCH ═══════════ */
+
+// Build bulbs
+const COLORS = ['b-r','b-g','b-b','b-y','b-w','b-o','b-p'];
+const C2_COUNT = 24;
+const bulbRow = document.getElementById('c2-bulbs-row');
+const c2Bulbs = [];
+for(let i=0;i<C2_COUNT;i++) {
+  const bw = document.createElement('div'); bw.className='c2-bw';
+  const wire = document.createElement('div'); wire.className='c2-wire';
+  const bulb = document.createElement('div');
+  const col = COLORS[i%COLORS.length];
+  bulb.className=`c2-bulb`; bulb.dataset.col=col;
+  bw.appendChild(wire); bw.appendChild(bulb);
+  bulbRow.appendChild(bw); c2Bulbs.push({el:bulb, col});
+}
+function c2Bulb_on(b) {
+  const map={b_r:'on-r','b-g':'on-g','b-b':'on-b','b-y':'on-y','b-w':'on-w','b-o':'on-o','b-p':'on-p'};
+  b.el.className='c2-bulb '+map[b.col]||'on-w';
+}
+function c2Bulb_off(b) { b.el.className='c2-bulb'; }
+
+let c2NormalInt;
+function c2AmbientLights() {
+  c2Bulbs.forEach(b => { Math.random()>0.45 ? c2Bulb_on(b) : c2Bulb_off(b); });
+}
+c2NormalInt = setInterval(c2AmbientLights, 900);
+
+// Threat meter
+const c2TM = document.getElementById('c2-threat-meter');
+const C2_BARS = 10;
+for(let i=0;i<C2_BARS;i++) { const b=document.createElement('div'); b.className='c2-tm-bar'; c2TM.appendChild(b); }
+const c2TMBars = c2TM.querySelectorAll('.c2-tm-bar');
+let c2ThreatLvl = 2;
+function c2SetThreat(lvl) {
+  c2TMBars.forEach((b,i) => {
+    b.classList.remove('ag','ay','ar');
+    if(i<lvl) b.classList.add(i<4?'ag':i<7?'ay':'ar');
+  });
+}
+c2SetThreat(c2ThreatLvl);
+setInterval(()=>{
+  if(c2Scanning) return;
+  c2ThreatLvl = Math.max(1,Math.min(4, c2ThreatLvl+(Math.random()>0.5?1:-1)));
+  c2SetThreat(c2ThreatLvl);
+},2000);
+
+// Waveform
+const wc = document.getElementById('c2-wave-canvas');
+const wx = wc.getContext('2d');
+let c2WavePts = Array.from({length:50},()=>15);
+function c2DrawWave() {
+  wx.clearRect(0,0,wc.width,wc.height);
+  c2WavePts.shift(); c2WavePts.push(Math.random()*12+9);
+  wx.beginPath();
+  c2WavePts.forEach((p,i)=>{
+    const x=(i/c2WavePts.length)*wc.width;
+    const y=wc.height/2+(p-15);
+    i===0?wx.moveTo(x,y):wx.lineTo(x,y);
+  });
+  wx.strokeStyle='rgba(0,180,20,0.4)'; wx.lineWidth=1.5; wx.stroke();
+  requestAnimationFrame(c2DrawWave);
+}
+c2DrawWave();
+
+// Timestamp
+let c2Secs = 22*3600+14*60+3;
+setInterval(()=>{
+  c2Secs++;
+  const h=String(Math.floor(c2Secs/3600)%24).padStart(2,'0');
+  const m=String(Math.floor((c2Secs%3600)/60)).padStart(2,'0');
+  const s=String(c2Secs%60).padStart(2,'0');
+  document.getElementById('c2-cam-ts').textContent=`1984:10:28 ${h}:${m}:${s}`;
+},1000);
+
+// Scan trigger
+let c2Scanning = false;
+function c2TriggerScan() {
+  if(c2Scanning) return;
+  c2Scanning=true;
+  const btn=document.getElementById('c2-scan-btn');
+  btn.disabled=true; btn.textContent='⬡ SCANNING...';
+  clearInterval(c2NormalInt);
+
+  let tick=0;
+  const fl1=setInterval(()=>{
+    c2Bulbs.forEach(b=>{ Math.random()>0.5?c2Bulb_on(b):c2Bulb_off(b); });
+    document.getElementById('c2-page-flash').classList.toggle('flash');
+    tick++;
+    if(tick>20){
+      clearInterval(fl1);
+      c2SetThreat(10);
+      document.getElementById('c2-demo-screen').classList.add('show');
+      document.getElementById('c2-det-banner').classList.add('show');
+      document.getElementById('c2-page-flash').classList.remove('flash');
+
+      const seq=[[0,7,14],[1,8,15],[2,9,16],[3,10,17],[4,11,18],[5,12,19],[6,13,20],[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],[16,17,18,19,20,21],[0,10,20],[2,12],[5,15],[3,8,13,18]];
+      let si=0;
+      const pi=setInterval(()=>{
+        c2Bulbs.forEach(b=>c2Bulb_off(b));
+        if(si<seq.length) seq[si].forEach(idx=>c2Bulbs[idx]&&c2Bulb_on(c2Bulbs[idx]));
+        const pf=document.getElementById('c2-page-flash');
+        pf.className='flash'; setTimeout(()=>pf.className='',80);
+        si++;
+        if(si>=seq.length*2){
+          clearInterval(pi);
+          c2Bulbs.forEach(b=>c2Bulb_on(b));
+          document.getElementById('c2-page-flash').className='blackout';
+          setTimeout(()=>{
+            document.getElementById('c2-page-flash').className='';
+            c2Bulbs.forEach(b=>c2Bulb_off(b));
+            setTimeout(()=>{
+              document.getElementById('c2-demo-screen').classList.remove('show');
+              document.getElementById('c2-det-banner').classList.remove('show');
+              c2SetThreat(2); c2ThreatLvl=2;
+              c2Scanning=false; btn.disabled=false; btn.textContent='▶ SCAN PERIMETER';
+              c2NormalInt=setInterval(c2AmbientLights,900);
+            },800);
+          },600);
+        }
+      },200);
+    }
+  },100);
+}
+
+
+/* ═══════════ CARD 3 — CODE RED ═══════════ */
+
+let c3AlarmActive=false;
+let c3AlarmTimer=null;
+let c3AudioCtx=null;
+
+function c3GetAudioCtx() {
+  if(!c3AudioCtx) c3AudioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  return c3AudioCtx;
+}
+function c3PlayAlarm() {
+  const ctx=c3GetAudioCtx();
+  if(ctx.state==='suspended') ctx.resume();
+  const osc1=ctx.createOscillator(); const g1=ctx.createGain();
+  osc1.type='sawtooth'; g1.gain.value=0.12;
+  osc1.connect(g1); g1.connect(ctx.destination);
+  [0,0.5,1.0,1.5,2.0,2.5,3.0].forEach((t,i)=>{
+    osc1.frequency.setValueAtTime(i%2===0?440:880, ctx.currentTime+t);
+  });
+  g1.gain.setValueAtTime(0.12,ctx.currentTime);
+  g1.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+3.8);
+  osc1.start(ctx.currentTime); osc1.stop(ctx.currentTime+3.8);
+
+  const osc2=ctx.createOscillator(); const g2=ctx.createGain();
+  osc2.type='square'; osc2.frequency.value=55; g2.gain.value=0.06;
+  osc2.connect(g2); g2.connect(ctx.destination);
+  g2.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+3.8);
+  osc2.start(ctx.currentTime); osc2.stop(ctx.currentTime+3.8);
+
+  [0,0.6,1.2,1.8,2.4,3.0].forEach(t=>{
+    const o=ctx.createOscillator(); const g=ctx.createGain();
+    o.type='square'; o.frequency.value=1200;
+    g.gain.setValueAtTime(0,ctx.currentTime+t);
+    g.gain.linearRampToValueAtTime(0.08,ctx.currentTime+t+0.05);
+    g.gain.linearRampToValueAtTime(0,ctx.currentTime+t+0.25);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(ctx.currentTime+t); o.stop(ctx.currentTime+t+0.3);
+  });
+}
+
+let c3SirenInt=null; let c3SirenPhase=0;
+function c3StartSirens(){
+  c3SirenInt=setInterval(()=>{
+    c3SirenPhase++;
+    const r=c3SirenPhase%2===0;
+    document.getElementById('c3-sl-tl').className='c3-sl '+(r?'r-on':'b-on');
+    document.getElementById('c3-sl-tr').className='c3-sl '+(r?'b-on':'r-on');
+    document.getElementById('c3-sl1').className='c3-sl '+(r?'r-on':'b-on');
+    document.getElementById('c3-sl2').className='c3-sl '+(r?'b-on':'r-on');
+    const s=document.getElementById('c3-strobe');
+    s.className=r?'on':'white';
+    document.getElementById('c3-card-overlay').className='c3-card-overlay active';
+  },280);
+}
+function c3StopSirens(){
+  clearInterval(c3SirenInt);
+  ['c3-sl-tl','c3-sl-tr','c3-sl1','c3-sl2'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.className='c3-sl';
+  });
+  document.getElementById('c3-strobe').className='';
+  document.getElementById('c3-card-overlay').className='c3-card-overlay';
+}
+
+function c3TriggerAlarm(){
+  if(c3AlarmActive) return;
+  c3AlarmActive=true;
+  c3PlayAlarm(); c3StartSirens();
+  document.getElementById('c3-status-txt').textContent='⚠ CODE RED — EVACUATE NOW ⚠';
+  document.getElementById('c3-status-txt').className='c3-status-txt alarming';
+  const btn=document.getElementById('c3-big-btn');
+  btn.style.animation='none';
+  btn.style.transform='scale(0.95)';
+  btn.style.boxShadow='0 0 80px rgba(255,0,0,0.9),0 0 160px rgba(200,0,0,0.6)';
+  // Panic nav lights
+  document.querySelectorAll('.nav-light').forEach(l=>{
+    l.style.animation='navFlicker 0.15s infinite';
+    l.style.background='#ff2222';
+  });
+  c3AlarmTimer=setTimeout(()=>{
+    c3StopSirens();
+    document.getElementById('c3-status-txt').textContent='STANDBY // AWAITING SIGNAL';
+    document.getElementById('c3-status-txt').className='c3-status-txt';
+    btn.style.animation=''; btn.style.transform=''; btn.style.boxShadow='';
+    document.querySelectorAll('.nav-light').forEach(l=>{ l.style.animation=''; l.style.background=''; });
+    c3AlarmActive=false;
+  },4500);
+}
+</script>
+
+</body>
+</html>
