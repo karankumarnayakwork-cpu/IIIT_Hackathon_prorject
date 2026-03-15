@@ -1,7 +1,7 @@
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
-from visio_audio.speech_module import process_audio
+from code_red.speech_module import process_audio
 
 print("VISIO Audio Test Started...")
 
