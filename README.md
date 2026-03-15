@@ -150,3 +150,7 @@ Document Intelligence generates automated briefings
 Vision Surveillance monitors threats
 
 Voice Detection triggers emergency alerts
+
+
+contributors:
+  @Mohi-ni
