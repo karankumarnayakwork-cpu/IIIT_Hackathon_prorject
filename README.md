@@ -152,5 +152,7 @@ Vision Surveillance monitors threats
 Voice Detection triggers emergency alerts
 
 
-contributors:
-  @Mohi-ni
+## 👥 Team
+
+- Karan kumar Nayak
+- @Mohi-ni 
