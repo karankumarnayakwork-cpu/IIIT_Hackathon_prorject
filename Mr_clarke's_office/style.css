@@ -1,5 +1,10 @@
 /* ============================================================
-   
+   ADVAITA EVENTS — COMBINED STYLES
+   HAWKINS INDIANA // 1984
+   ============================================================ */
+
+/* ── GOOGLE FONTS imported in HTML ── */
+
 /* ── RESET & BASE ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -33,18 +38,86 @@ nav {
   background: linear-gradient(to bottom, rgba(10,8,8,0.98), rgba(10,8,8,0));
   border-bottom: 1px solid rgba(204,26,26,0.1);
 }
+/* ── STRANGER THINGS logo animation ── */
+@import url('https://fonts.googleapis.com/css2?family=Benguiat:wght@700&display=swap');
+
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; font-weight: 900;
-  letter-spacing: 0.15em; color: #d4c8c8;
-  text-decoration: none; opacity: 0.85; position: relative;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: #cc1a1a;
+  /* Base layered red glow – mimics the show's title card */
+  text-shadow:
+    0 0 7px  #ff1a1a,
+    0 0 14px #cc0000,
+    0 0 30px rgba(200,0,0,0.7),
+    0 0 60px rgba(160,0,0,0.4),
+    2px 2px 0 #5a0000,
+    -1px -1px 0 #3a0000;
+  animation: stLogoFlicker 6s ease-in-out infinite;
+  filter: brightness(1);
 }
+
+/* Chromatic-aberration ghost echo */
+.logo::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px; top: 0;
+  color: transparent;
+  text-shadow: -2px 0 rgba(0,200,255,0.25);
+  animation: stChromatic 6s ease-in-out infinite;
+  pointer-events: none;
+  letter-spacing: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  white-space: nowrap;
+}
+
+/* Scan-line / energy bar */
 .logo::after {
-  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 1px; background: #cc1a1a;
-  transform: scaleX(0); transition: transform 0.3s;
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0; height: 2px;
+  background: linear-gradient(to right, transparent, #cc1a1a, #ff4444, #cc1a1a, transparent);
+  box-shadow: 0 0 8px #ff2222;
+  animation: stScanLine 4s linear infinite;
+  transform-origin: left;
 }
-.logo:hover::after { transform: scaleX(1); }
+
+/* Main flicker — red pulse like the show's title card */
+@keyframes stLogoFlicker {
+  0%   { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 0 0 60px rgba(160,0,0,0.4), 2px 2px 0 #5a0000, -1px -1px 0 #3a0000; filter:brightness(1); }
+  18%  { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 0 0 60px rgba(160,0,0,0.4), 2px 2px 0 #5a0000, -1px -1px 0 #3a0000; filter:brightness(1); }
+  19%  { text-shadow: none; filter:brightness(0.2); color:#3a0000; }
+  20%  { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 2px 2px 0 #5a0000; filter:brightness(1.4); color:#cc1a1a; }
+  21%  { text-shadow: none; filter:brightness(0.1); color:#220000; }
+  22%  { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 60px rgba(200,0,0,0.8), 0 0 100px rgba(180,0,0,0.5), 2px 2px 0 #5a0000; filter:brightness(1.6); color:#ff2222; }
+  38%  { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 0 0 60px rgba(160,0,0,0.4), 2px 2px 0 #5a0000, -1px -1px 0 #3a0000; filter:brightness(1); color:#cc1a1a; }
+  60%  { text-shadow: 0 0 10px #ff2222, 0 0 20px #cc0000, 0 0 50px rgba(220,0,0,0.8), 0 0 90px rgba(180,0,0,0.5), 3px 3px 0 #5a0000; filter:brightness(1.2); }
+  60.5%{ text-shadow: none; filter:brightness(0.15); color:#2a0000; }
+  61%  { text-shadow: 0 0 10px #ff2222, 0 0 20px #cc0000, 0 0 50px rgba(220,0,0,0.8), 2px 2px 0 #5a0000; filter:brightness(1.5); color:#ff3333; }
+  75%  { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 0 0 60px rgba(160,0,0,0.4), 2px 2px 0 #5a0000, -1px -1px 0 #3a0000; filter:brightness(1); color:#cc1a1a; }
+  100% { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 30px rgba(200,0,0,0.7), 0 0 60px rgba(160,0,0,0.4), 2px 2px 0 #5a0000, -1px -1px 0 #3a0000; filter:brightness(1); }
+}
+
+/* Blue ghost echo drift */
+@keyframes stChromatic {
+  0%,100% { opacity:0.5; transform:translateX(2px); }
+  30%     { opacity:0.2; transform:translateX(-1px); }
+  60%     { opacity:0.6; transform:translateX(3px); }
+}
+
+/* Scan line wipe */
+@keyframes stScanLine {
+  0%   { transform:scaleX(0); opacity:0; }
+  10%  { transform:scaleX(1); opacity:1; }
+  80%  { transform:scaleX(1); opacity:0.7; }
+  100% { transform:scaleX(0); opacity:0; }
+}
 
 /* nav-lights row is removed — lights live inside each <li> now */
 .nav-lights { display: none; }
@@ -583,9 +656,203 @@ nav {
 .c2-reg:hover { color:#fff; border-color:rgba(0,200,30,0.8); box-shadow:0 0 25px rgba(0,150,20,0.4); }
 .c2-reg:hover::before { transform:translateX(0); }
 
+
 /* ============================================================
-   ── CARD 3: CODE RED ──
+   MUSIC PLAYER — Hawkins Radio
    ============================================================ */
+#hawkins-radio {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 600;
+  width: 260px;
+  background: rgba(8,4,4,0.96);
+  border: 1px solid rgba(180,20,20,0.5);
+  box-shadow: 0 0 30px rgba(150,0,0,0.25), 0 0 60px rgba(100,0,0,0.12);
+  backdrop-filter: blur(10px);
+  font-family: 'Courier Prime', monospace;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), opacity 0.35s;
+}
+#hawkins-radio.hr-collapsed {
+  transform: translateY(calc(100% - 38px));
+}
+#hawkins-radio::before,
+#hawkins-radio::after {
+  content:''; position:absolute; width:14px; height:14px;
+  border-color:rgba(200,30,30,0.6); border-style:solid; z-index:2; pointer-events:none;
+}
+#hawkins-radio::before { top:6px; left:6px; border-width:1px 0 0 1px; }
+#hawkins-radio::after  { bottom:6px; right:6px; border-width:0 1px 1px 0; }
+
+/* Header bar */
+.hr-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(180,20,20,0.3);
+  cursor: pointer;
+  user-select: none;
+}
+.hr-title-row {
+  display: flex; align-items: center; gap: 7px;
+}
+.hr-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #cc1a1a;
+  box-shadow: 0 0 6px #cc1a1a;
+  animation: hrDotBlink 1.2s step-end infinite;
+}
+.hr-dot.paused { background: #555; box-shadow: none; animation: none; }
+@keyframes hrDotBlink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.hr-label {
+  font-size: 0.58rem; letter-spacing: 0.3em; color: rgba(200,60,60,0.85);
+}
+.hr-chevron {
+  font-size: 0.7rem; color: rgba(200,60,60,0.6);
+  transition: transform 0.3s;
+}
+#hawkins-radio.hr-collapsed .hr-chevron { transform: rotate(180deg); }
+
+/* Body */
+.hr-body { padding: 10px 12px 14px; }
+
+/* Track info */
+.hr-now {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; margin-bottom: 10px;
+  background: rgba(30,4,4,0.7);
+  border: 1px solid rgba(120,15,15,0.4);
+}
+.hr-vinyl {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: radial-gradient(circle at 50% 50%, #1a0000 30%, #2a0505 50%, #0a0000 70%);
+  border: 2px solid rgba(180,30,30,0.4);
+  position: relative; overflow: hidden;
+  animation: hrSpin 3s linear infinite paused;
+}
+#hawkins-radio.hr-playing .hr-vinyl { animation-play-state: running; }
+.hr-vinyl::before {
+  content:''; position:absolute; inset:0;
+  background: repeating-radial-gradient(circle, transparent 0px, transparent 3px, rgba(180,20,20,0.08) 3px, rgba(180,20,20,0.08) 4px);
+}
+.hr-vinyl::after {
+  content:''; position:absolute; top:50%; left:50%;
+  width:8px; height:8px; border-radius:50%;
+  background:#cc1a1a; transform:translate(-50%,-50%);
+  box-shadow:0 0 4px #cc1a1a;
+}
+@keyframes hrSpin { to { transform: rotate(360deg); } }
+.hr-track-info { min-width:0; flex:1; }
+.hr-track-name {
+  font-size: 0.62rem; letter-spacing: 0.08em; color: #d4c8c8;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+.hr-track-sub {
+  font-size: 0.5rem; letter-spacing: 0.2em; color: rgba(180,60,60,0.65);
+}
+
+/* Progress bar */
+.hr-progress-wrap {
+  position: relative; height: 3px; background: rgba(80,10,10,0.5);
+  margin-bottom: 10px; cursor: pointer;
+}
+.hr-progress-fill {
+  height: 100%; background: #cc1a1a;
+  box-shadow: 0 0 6px rgba(200,26,26,0.7);
+  transition: width 0.5s linear;
+  width: 0%;
+}
+.hr-time-row {
+  display:flex; justify-content:space-between;
+  font-size:0.45rem; color:rgba(150,50,50,0.7); letter-spacing:0.1em;
+  margin-bottom:10px;
+}
+
+/* Controls */
+.hr-controls {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.hr-btn {
+  background: none; border: none; cursor: pointer;
+  color: rgba(200,60,60,0.8); font-size: 1rem;
+  padding: 4px; transition: color 0.2s, text-shadow 0.2s;
+  line-height: 1;
+}
+.hr-btn:hover { color: #ff4444; text-shadow: 0 0 10px rgba(255,68,68,0.6); }
+.hr-btn-play {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(180,30,30,0.6) !important;
+  background: rgba(20,4,4,0.8) !important;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(150,0,0,0.3);
+  transition: all 0.2s;
+}
+.hr-btn-play:hover { box-shadow: 0 0 20px rgba(200,0,0,0.5); border-color: rgba(220,40,40,0.8) !important; }
+
+/* Volume */
+.hr-vol-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.hr-vol-icon { font-size: 0.7rem; color: rgba(160,40,40,0.7); }
+.hr-vol-slider {
+  flex: 1; -webkit-appearance: none; appearance: none;
+  height: 3px; background: rgba(80,10,10,0.5);
+  outline: none; cursor: pointer; border-radius: 2px;
+}
+.hr-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 10px; height: 10px;
+  border-radius: 50%; background: #cc1a1a;
+  box-shadow: 0 0 4px #cc1a1a; cursor: pointer;
+}
+
+/* Track list */
+.hr-tracklist {
+  margin-top: 10px;
+  border-top: 1px solid rgba(100,15,15,0.3);
+  padding-top: 8px;
+  display: flex; flex-direction: column; gap: 3px;
+  max-height: 130px; overflow-y: auto;
+}
+.hr-tracklist::-webkit-scrollbar { width: 3px; }
+.hr-tracklist::-webkit-scrollbar-track { background: transparent; }
+.hr-tracklist::-webkit-scrollbar-thumb { background: rgba(150,20,20,0.5); border-radius: 2px; }
+
+.hr-track-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 8px; cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  border-radius: 1px;
+}
+.hr-track-row:hover { background: rgba(30,5,5,0.6); border-color: rgba(120,20,20,0.3); }
+.hr-track-row.active {
+  background: rgba(40,5,5,0.8);
+  border-color: rgba(180,30,30,0.4);
+}
+.hr-track-row.active .hr-tr-name { color: #ff4444; text-shadow: 0 0 8px rgba(255,68,68,0.5); }
+.hr-tr-num { font-size: 0.45rem; color: rgba(150,40,40,0.5); width: 14px; text-align:right; flex-shrink:0; }
+.hr-tr-name { font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(200,160,160,0.8); flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.hr-tr-dur { font-size: 0.45rem; color: rgba(120,40,40,0.6); flex-shrink:0; }
+.hr-tr-eq {
+  display:flex; align-items:flex-end; gap:1px; height:10px; flex-shrink:0;
+  opacity: 0;
+}
+.hr-track-row.active .hr-tr-eq { opacity:1; }
+.hr-eq-bar {
+  width: 2px; background: #cc1a1a;
+  border-radius: 1px;
+  animation: hrEqBar 0.6s ease-in-out infinite alternate;
+}
+.hr-eq-bar:nth-child(1) { animation-delay: 0s; }
+.hr-eq-bar:nth-child(2) { animation-delay: 0.15s; }
+.hr-eq-bar:nth-child(3) { animation-delay: 0.3s; }
+@keyframes hrEqBar {
+  from { height: 2px; }
+  to   { height: 10px; }
+}
+
 #section-card3 {
   background: #080000;
   overflow: hidden;

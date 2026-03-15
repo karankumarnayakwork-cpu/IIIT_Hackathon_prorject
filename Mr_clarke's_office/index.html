@@ -9,7 +9,122 @@
 </head>
 <body>
 
-<!-- ── GLOBAL OVERLAYS ── -->
+<!-- ── ENTER SPLASH ── -->
+<div id="st-splash">
+  <div id="st-splash-inner">
+    <div id="st-splash-flicker"></div>
+    <p class="st-splash-loc">HAWKINS&nbsp;&nbsp;INDIANA&nbsp;&nbsp;//&nbsp;&nbsp;1984</p>
+    <div class="st-splash-logo">STRANGER THINGS</div>
+    <p class="st-splash-sub">OFFICE OF MR. CLARKE</p>
+    <button id="st-enter-btn" onclick="stEnter()">
+      <span class="st-btn-dot"></span>
+      ENTER HAWKINS
+      <span class="st-btn-dot"></span>
+    </button>
+    <p class="st-splash-warn">// CLASSIFIED ACCESS ONLY //</p>
+  </div>
+</div>
+
+<style>
+#st-splash {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #030005;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease;
+}
+#st-splash.hide { opacity: 0; pointer-events: none; }
+
+#st-splash-flicker {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
+  pointer-events: none;
+}
+
+#st-splash-inner {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1.4rem;
+  text-align: center; padding: 2rem;
+}
+
+.st-splash-loc {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.68rem; letter-spacing: 0.5em;
+  color: #5a4040; animation: stSplashFade 2s ease both;
+}
+
+.st-splash-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  font-weight: 900; letter-spacing: 0.18em;
+  color: #cc1a1a;
+  text-shadow:
+    0 0 7px #ff1a1a, 0 0 14px #cc0000,
+    0 0 40px rgba(200,0,0,0.7),
+    2px 2px 0 #5a0000, -1px -1px 0 #3a0000;
+  animation: stSplashLogo 4s ease-in-out infinite, stSplashFade 1.5s ease both;
+}
+
+@keyframes stSplashLogo {
+  0%,100% { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 40px rgba(200,0,0,0.7), 2px 2px 0 #5a0000; }
+  19%     { text-shadow: none; color: #2a0000; }
+  20%     { text-shadow: 0 0 7px #ff1a1a, 0 0 30px rgba(200,0,0,0.9), 2px 2px 0 #5a0000; color: #ff2222; }
+  21%     { text-shadow: none; color: #1a0000; }
+  22%     { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 0 0 60px rgba(200,0,0,0.8), 2px 2px 0 #5a0000; color: #cc1a1a; }
+  60%     { text-shadow: 0 0 10px #ff2222, 0 0 20px #cc0000, 0 0 60px rgba(220,0,0,0.8), 2px 2px 0 #5a0000; }
+  60.4%   { text-shadow: none; color: #1a0000; }
+  61%     { text-shadow: 0 0 7px #ff1a1a, 0 0 14px #cc0000, 2px 2px 0 #5a0000; color: #cc1a1a; }
+}
+
+.st-splash-sub {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem; letter-spacing: 0.4em;
+  color: #7a4040;
+  animation: stSplashFade 2s ease 0.3s both;
+}
+
+#st-enter-btn {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid rgba(180,20,20,0.6);
+  color: rgba(200,60,60,0.9);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem; letter-spacing: 0.35em;
+  padding: 0.9rem 2.2rem;
+  cursor: pointer;
+  position: relative; overflow: hidden;
+  transition: all 0.3s;
+  animation: stSplashFade 2s ease 0.6s both, stBtnPulse 2.5s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(150,0,0,0.2);
+}
+#st-enter-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(80,5,5,0.5), rgba(120,10,10,0.3));
+  transform: translateX(-100%); transition: transform 0.3s;
+}
+#st-enter-btn:hover { color: #fff; border-color: rgba(220,40,40,0.9); box-shadow: 0 0 40px rgba(200,0,0,0.4); }
+#st-enter-btn:hover::before { transform: translateX(0); }
+
+.st-btn-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #cc1a1a; box-shadow: 0 0 6px #cc1a1a;
+  animation: stDotBlink 1s step-end infinite;
+  flex-shrink: 0;
+}
+@keyframes stDotBlink { 0%,100%{opacity:1} 50%{opacity:0.1} }
+
+.st-splash-warn {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.52rem; letter-spacing: 0.4em;
+  color: rgba(100,30,30,0.5);
+  animation: stSplashFade 2s ease 0.9s both;
+}
+
+@keyframes stSplashFade { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@keyframes stBtnPulse { 0%,100%{box-shadow:0 0 20px rgba(150,0,0,0.2)} 50%{box-shadow:0 0 40px rgba(200,0,0,0.4)} }
+</style>
+
+
 <div id="c2-page-flash"></div>
 <div id="c3-strobe"></div>
 
@@ -18,7 +133,7 @@
 <!-- <div class="ss-badge">SS</div> -->
 
 <nav>
-  <a href="#" class="logo">STRANGER THINGS</a>
+  <a href="#" class="logo" data-text="STRANGER THINGS">STRANGER THINGS</a>
   <ul class="nav-links">
     <li><div class="nav-light"></div><a href="#section-card1">UPSIDE DOWN THEORIES</a></li>
     <li><div class="nav-light"></div><a href="#section-card2">DEMOWATCH</a></li>
@@ -150,7 +265,7 @@
         <p class="c1-sub">// DECODE THE MULTIVERSE //</p>
         <p class="c1-desc">Mr. Clarke's classified multiverse theories — simplified. Participants distill the science of the Upside Down into a PDF guide readable by ordinary Hawkins citizens. Judged on clarity, accuracy, and creative communication.</p>
         <p class="c1-loc"><span>LOC:</span>&nbsp;School</p>
-        <a href="#" class="c1-reg">Aweken</a>
+        <a href="http://localhost:8501" class="c1-reg">Aweken</a>
       </div>
     </div>
   </section>
@@ -244,7 +359,7 @@
         <p class="c2-sub">// MONITOR. DETECT. SURVIVE. //</p>
         <p class="c2-desc">Hawkins' first line of defense. When a Demogorgon is detected on the surveillance feed, the lights go haywire — just like they do in the Upside Down. Monitor the perimeter. React before it's too late.</p>
         <p class="c2-loc"><span>LOC:</span>&nbsp; SURVEILLANCE ROOM B</p>
-        <a href="#" class="c2-reg">Find</a>
+        <a href="http://127.0.0.1:3000/index1.html" class="c2-reg">Find</a>
       </div>
     </div>
   </section>
@@ -671,6 +786,283 @@ function c3TriggerAlarm(){
     document.querySelectorAll('.nav-light').forEach(l=>{ l.style.animation=''; l.style.background=''; });
     c3AlarmActive=false;
   },4500);
+}
+</script>
+
+<!-- ════════════════════════════════════════
+     HAWKINS RADIO — MUSIC PLAYER
+     ════════════════════════════════════════ -->
+<div id="hawkins-radio" class="hr-collapsed">
+  <!-- Toggle header -->
+  <div class="hr-header" onclick="hrToggle()">
+    <div class="hr-title-row">
+      <div class="hr-dot paused" id="hr-dot"></div>
+      <span class="hr-label">HAWKINS RADIO</span>
+    </div>
+    <span class="hr-chevron">▲</span>
+  </div>
+
+  <!-- Player body -->
+  <div class="hr-body">
+    <!-- Now playing -->
+    <div class="hr-now">
+      <div class="hr-vinyl" id="hr-vinyl"></div>
+      <div class="hr-track-info">
+        <div class="hr-track-name" id="hr-track-name">SELECT A TRACK</div>
+        <div class="hr-track-sub" id="hr-track-sub">HAWKINS // 1984</div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="hr-progress-wrap" onclick="hrSeek(event)" id="hr-progress-wrap">
+      <div class="hr-progress-fill" id="hr-progress-fill"></div>
+    </div>
+    <div class="hr-time-row">
+      <span id="hr-time-cur">0:00</span>
+      <span id="hr-time-dur">0:00</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="hr-controls">
+      <button class="hr-btn" onclick="hrPrev()" title="Previous">&#9664;&#9664;</button>
+      <button class="hr-btn hr-btn-play" id="hr-play-btn" onclick="hrPlayPause()">&#9654;</button>
+      <button class="hr-btn" onclick="hrNext()" title="Next">&#9654;&#9654;</button>
+    </div>
+
+    <!-- Volume -->
+    <div class="hr-vol-row">
+      <span class="hr-vol-icon">&#128266;</span>
+      <input type="range" class="hr-vol-slider" id="hr-vol" min="0" max="1" step="0.01" value="0.6" oninput="hrSetVol(this.value)">
+    </div>
+
+    <!-- Track list -->
+    <div class="hr-tracklist" id="hr-tracklist"></div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   HAWKINS RADIO — Music Player
+   ─────────────────────────────────────────────────────────
+   HOW TO ADD YOUR SONGS:
+   Fill in the four track objects below.
+
+   • src  — path to your audio file, relative to this HTML file
+             e.g.  'music/upside-down.mp3'
+                   'songs/track1.ogg'
+                   'C:/Users/You/Music/song.mp3'  ← absolute also works
+             Leave as '' to keep the slot empty / skip it.
+
+   • name — display title shown in the player   Mr_clarke's_office\src\song1.mp3
+   • sub  — subtitle / artist line
+   • color— accent hex colour for the vinyl ring glow
+   ══════════════════════════════════════════════════════════ */
+
+const HR_TRACKS = [
+  {
+    src:   'song1.mp3',          // ← PASTE YOUR SONG PATH HERE  e.g. 'music/track1.mp3'
+    name:  'TRACK 01',
+    sub:   'HAWKINS // 1984',
+    color: '#7a32ff'
+  },
+  {
+    src:   'song2.mp3',          // ← PASTE YOUR SONG PATH HERE
+    name:  'TRACK 02',
+    sub:   'HAWKINS // 1984',
+    color: '#cc1a1a'
+  },
+  {
+    src:   'song3.mp3',          // ← PASTE YOUR SONG PATH HERE
+    name:  'TRACK 03',
+    sub:   'HAWKINS // 1984',
+    color: '#ff8800'
+  },
+  {
+    src:   'song4.mp3',          // ← PASTE YOUR SONG PATH HERE
+    name:  'TRACK 04',
+    sub:   'HAWKINS // 1984',
+    color: '#00bbdd'
+  }
+];
+
+/* ═══ ENGINE — no need to edit below this line ═══ */
+
+let hrAudio        = new Audio();
+hrAudio.volume     = 0.6;
+let hrCurrentTrack = -1;
+let hrPlaying      = false;
+let hrTickId       = null;   // setInterval id — more reliable than rAF for audio sync
+let hrOpen         = false;
+
+/* ── Helpers ── */
+function hrFmtTime(s) {
+  if (!isFinite(s) || isNaN(s)) return '0:00';
+  const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+  return m + ':' + String(sec).padStart(2, '0');
+}
+
+function hrSetUIPlaying(state) {
+  hrPlaying = state;
+  document.getElementById('hr-play-btn').innerHTML = state ? '&#9646;&#9646;' : '&#9654;';
+  document.getElementById('hawkins-radio').classList.toggle('hr-playing', state);
+  document.getElementById('hr-dot').classList.toggle('paused', !state);
+}
+
+/* ── Progress ticker — uses setInterval so it keeps running
+      even if the browser delays rAF for background tabs or
+      during initial buffering stalls ── */
+function hrStartTick() {
+  hrStopTick();
+  hrTickId = setInterval(() => {
+    const cur = isFinite(hrAudio.currentTime) ? hrAudio.currentTime : 0;
+    const dur = isFinite(hrAudio.duration)    ? hrAudio.duration    : 0;
+    const pct = dur > 0 ? (cur / dur) * 100 : 0;
+    document.getElementById('hr-progress-fill').style.width = pct + '%';
+    document.getElementById('hr-time-cur').textContent = hrFmtTime(cur);
+    document.getElementById('hr-time-dur').textContent = hrFmtTime(dur);
+  }, 250);
+}
+function hrStopTick() {
+  if (hrTickId !== null) { clearInterval(hrTickId); hrTickId = null; }
+}
+
+/* ── Load & play ── */
+function hrPlayTrack(idx) {
+  const t = HR_TRACKS[idx];
+  if (!t || !t.src) {
+    hrCurrentTrack = idx;
+    document.getElementById('hr-track-name').textContent = t ? t.name : '—';
+    document.getElementById('hr-track-sub').textContent  = 'NO FILE SET';
+    document.getElementById('hr-time-dur').textContent   = '0:00';
+    hrRebuildList();
+    return;
+  }
+
+  hrStopTick();
+  hrAudio.pause();
+  hrAudio.src = t.src;
+  hrCurrentTrack = idx;
+
+  document.getElementById('hr-track-name').textContent    = t.name;
+  document.getElementById('hr-track-sub').textContent     = t.sub;
+  document.getElementById('hr-vinyl').style.borderColor   = t.color + '99';
+  document.getElementById('hr-vinyl').style.boxShadow     = '0 0 12px ' + t.color + '66';
+  document.getElementById('hr-progress-fill').style.width = '0%';
+  document.getElementById('hr-time-cur').textContent      = '0:00';
+  document.getElementById('hr-time-dur').textContent      = '0:00';
+  hrRebuildList();
+
+  // Start tick immediately — it will show 0:00 until metadata loads, then track progress
+  hrStartTick();
+
+  hrAudio.play()
+    .then(() => hrSetUIPlaying(true))
+    .catch(err => {
+      console.warn('Playback error for', t.src, err);
+      hrStopTick();
+      hrSetUIPlaying(false);
+    });
+}
+
+/* ── Auto-advance ── */
+hrAudio.addEventListener('ended', () => {
+  hrStopTick();
+  hrSetUIPlaying(false);
+  hrPlayTrack((hrCurrentTrack + 1) % HR_TRACKS.length);
+});
+
+/* ── Pause also stops the tick ── */
+hrAudio.addEventListener('pause', () => {
+  if (!hrAudio.ended) hrStopTick();
+});
+hrAudio.addEventListener('play', () => {
+  hrStartTick();
+});
+
+/* ── Controls ── */
+function hrPlayPause() {
+  if (hrCurrentTrack === -1) { hrPlayTrack(0); return; }
+  if (!HR_TRACKS[hrCurrentTrack].src) { hrPlayTrack(hrCurrentTrack); return; }
+  if (hrPlaying) {
+    hrAudio.pause();
+    hrSetUIPlaying(false);
+  } else {
+    hrAudio.play()
+      .then(() => hrSetUIPlaying(true))
+      .catch(() => {});
+  }
+}
+function hrNext() {
+  hrPlayTrack((hrCurrentTrack + 1) % HR_TRACKS.length);
+}
+function hrPrev() {
+  if (hrAudio.currentTime > 3) {
+    hrAudio.currentTime = 0;
+  } else {
+    hrPlayTrack((hrCurrentTrack - 1 + HR_TRACKS.length) % HR_TRACKS.length);
+  }
+}
+function hrSetVol(v) {
+  hrAudio.volume = parseFloat(v);
+}
+function hrSeek(e) {
+  if (!hrAudio.duration) return;
+  const wrap = document.getElementById('hr-progress-wrap');
+  hrAudio.currentTime = (e.offsetX / wrap.offsetWidth) * hrAudio.duration;
+}
+
+/* ── Tracklist ── */
+function hrRebuildList() {
+  const list = document.getElementById('hr-tracklist');
+  list.innerHTML = '';
+  HR_TRACKS.forEach((t, i) => {
+    const row = document.createElement('div');
+    row.className = 'hr-track-row' + (i === hrCurrentTrack ? ' active' : '');
+    row.onclick = () => hrPlayTrack(i);
+    const label = t.src
+      ? t.name
+      : `<span style="opacity:0.35;font-style:italic">${t.name} — no file</span>`;
+    row.innerHTML = `
+      <span class="hr-tr-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="hr-tr-name">${label}</span>
+      <div class="hr-tr-eq">
+        <div class="hr-eq-bar"></div>
+        <div class="hr-eq-bar"></div>
+        <div class="hr-eq-bar"></div>
+      </div>
+      <span class="hr-tr-dur" id="hr-dur-${i}">—</span>
+    `;
+    list.appendChild(row);
+  });
+}
+hrRebuildList();
+
+/* ── Pre-load durations ── */
+HR_TRACKS.forEach((t, i) => {
+  if (!t.src) return;
+  const a = new Audio();
+  a.preload = 'metadata';
+  a.src = t.src;
+  a.addEventListener('loadedmetadata', () => {
+    const el = document.getElementById('hr-dur-' + i);
+    if (el) el.textContent = hrFmtTime(a.duration);
+  });
+});
+
+/* ── Toggle ── */
+function hrToggle() {
+  hrOpen = !hrOpen;
+  document.getElementById('hawkins-radio').classList.toggle('hr-collapsed', !hrOpen);
+}
+
+/* ── Splash enter — user click satisfies autoplay policy ── */
+function stEnter() {
+  const splash = document.getElementById('st-splash');
+  splash.classList.add('hide');
+  setTimeout(() => splash.style.display = 'none', 850);
+  hrOpen = true;
+  document.getElementById('hawkins-radio').classList.remove('hr-collapsed');
+  hrPlayTrack(3);
 }
 </script>
 
