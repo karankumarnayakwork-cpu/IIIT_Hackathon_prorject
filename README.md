@@ -154,5 +154,7 @@ Voice Detection triggers emergency alerts
 
 ## 👥 Team
 
-- Karan kumar Nayak
-- @Mohi-ni 
+- @karankumarnayakwork-cpu
+- @Mohi-ni
+- @AnshuUdgata
+- @Taman-na
